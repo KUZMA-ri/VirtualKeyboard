@@ -761,7 +761,7 @@ export const keyList = [
     // Forth row of keys
     {
         type: 'controls',   
-        id: 'LeftShift',      
+        id: 'ShiftLeft',      
         size: 'large',
         label: [
             {
@@ -977,7 +977,7 @@ export const keyList = [
     },
     {
         type: 'controls',   
-        id: 'rightShift',      
+        id: 'ShiftRight',      
         size: 'medium',
         label: [
             {
@@ -1032,7 +1032,7 @@ export const keyList = [
     },
     {
         type: 'controls',   
-        id: 'MetaLeft',      
+        id: 'AltLeft',      
         size: 'small',
         label: [
             {
