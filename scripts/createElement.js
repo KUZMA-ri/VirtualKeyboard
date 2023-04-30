@@ -8,4 +8,5 @@ export function createElement(tag, className, text) {
             el.classList.add(elArr);
         }
     }
-};
+    return el;
+}
