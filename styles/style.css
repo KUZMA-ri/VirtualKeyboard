@@ -8,9 +8,24 @@ body {
     background-color: fff;
 }
 
+button { 
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    border-radius: 30px;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+/* button:hover {
+    box-shadow: -2px 1px 20px 0px rgba(255, 255, 255, 0.75);
+    background-color: #c6e1e5;
+    border: none;
+    color: black;
+} */
+
 .container {
     max-width: 1200px;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -22,7 +37,7 @@ body {
     width: 90%;
     height: 70%;
     margin: 0 auto 50px auto;
-    background-color: #6199a1;
+    background-color: #1d3538;
     border-radius: 10px;
     padding: 10px;
 }
@@ -37,4 +52,46 @@ body {
     padding: 15px;
     resize: none;
     border-radius: 5px;
+}
+
+.keyboard__keys-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.small {
+    width: 60px;
+    height: 60px;
+    margin: 4px;
+    padding: 5px;
+}
+
+.medium {
+    width: 100px;
+    height: 60px;
+    margin: 4px;
+    padding: 5px;
+}
+
+.large {
+    width: 170px;
+    height: 60px;
+    margin: 4px;
+    padding: 5px;
+}
+
+.extra-large {
+    width: 404px;
+    height: 60px;
+    margin: 4px;
+    padding: 5px;
+}
+
+.active {
+    box-shadow: -2px 1px 20px 0px rgba(255, 255, 255, 0.75);
+    background-color: #c6e1e5;
+    border: none;
+    color: black;
 }
