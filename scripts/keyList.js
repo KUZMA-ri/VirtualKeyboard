@@ -20,7 +20,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key1',      
+        id: 'Digit1',      
         size: 'small',   
         label: [
             {
@@ -38,7 +38,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key2',      
+        id: 'Digit2',      
         size: 'small',   
         label: [
             {
@@ -56,7 +56,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key3',      
+        id: 'Digit3',      
         size: 'small',   
         label: [
             {
@@ -74,7 +74,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key4',      
+        id: 'Digit4',      
         size: 'small',   
         label: [
             {
@@ -92,7 +92,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key5',      
+        id: 'Digit5',      
         size: 'small',   
         label: [
             {
@@ -110,7 +110,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key6',      
+        id: 'Digit6',      
         size: 'small',   
         label: [
             {
@@ -128,7 +128,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key7',      
+        id: 'Digit7',      
         size: 'small',   
         label: [
             {
@@ -146,7 +146,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key8',      
+        id: 'Digit8',      
         size: 'small',   
         label: [
             {
@@ -164,7 +164,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key9',      
+        id: 'Digit9',      
         size: 'small',   
         label: [
             {
@@ -182,7 +182,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key0',      
+        id: 'Digit0',      
         size: 'small',   
         label: [
             {
@@ -200,7 +200,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key-',      
+        id: 'Minus',      
         size: 'small',   
         label: [
             {
@@ -218,7 +218,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key=',      
+        id: 'Equal',      
         size: 'small',   
         label: [
             {
@@ -237,20 +237,56 @@ export const keyList = [
     {
         type: 'controls',   
         id: 'Backspace',      
-        size: 'medium',   
+        size: 'medium', 
+        label: [
+            {
+                lang: 'EN', 
+                low:'Backspace', 
+                upper: 'Backspace', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Backspace', 
+                upper: 'Backspace', 
+            }  
+        ],  
         code: '8',
     },
     {
         type: 'controls',   
         id: 'Delete',      
         size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Del', 
+                upper: 'Del', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Del', 
+                upper: 'Del', 
+            }  
+        ],  
         code: '46',   
     },
     // Second row of keys
     {
         type: 'controls',   
         id: 'Tab',      
-        size: 'small',
+        size: 'medium',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Tab', 
+                upper: 'Tab', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Tab', 
+                upper: 'Tab', 
+            }  
+        ],  
         code: '9',   
     },
     {
@@ -435,7 +471,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key{',      
+        id: 'BracketLeft',      
         size: 'small',   
         label: [
             {
@@ -453,7 +489,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key}',      
+        id: 'BracketRight',      
         size: 'small',   
         label: [
             {
@@ -471,7 +507,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key/',      
+        id: 'Backslash',      
         size: 'small',   
         label: [
             {
@@ -491,7 +527,20 @@ export const keyList = [
     {
         type: 'controls',   
         id: 'CapsLock',      
-        size: 'medium',   
+        size: 'medium',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Caps', 
+                upper: 'Caps', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Caps', 
+                upper: 'Caps', 
+            }  
+        ],
+        code: '20',     
     },
     {
         type: 'key',   
@@ -657,7 +706,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key;',      
+        id: 'Semicolon',      
         size: 'small',   
         label: [
             {
@@ -675,7 +724,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key\'',      
+        id: 'Quote',      
         size: 'small',   
         label: [
             {
@@ -694,7 +743,19 @@ export const keyList = [
     {
         type: 'controls',   
         id: 'Enter',      
-        size: 'medium',
+        size: 'large',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Enter', 
+                upper: 'Enter', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Enter', 
+                upper: 'Enter', 
+            }  
+        ],  
         code: '13',   
     },
     // Forth row of keys
@@ -702,6 +763,18 @@ export const keyList = [
         type: 'controls',   
         id: 'LeftShift',      
         size: 'large',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Shift', 
+                upper: 'Shift', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Shift', 
+                upper: 'Shift', 
+            }  
+        ],  
         code: '16',   
     },
     {
@@ -832,7 +905,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key,',      
+        id: 'Comma',      
         size: 'small',   
         label: [
             {
@@ -850,7 +923,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key.',      
+        id: 'Period',      
         size: 'small',   
         label: [
             {
@@ -868,7 +941,7 @@ export const keyList = [
     },
     {
         type: 'key',   
-        id: 'Key/',      
+        id: 'Slash',      
         size: 'small',   
         label: [
             {
@@ -886,63 +959,201 @@ export const keyList = [
     },
     {
         type: 'controls',   
+        id: 'ArrowUp',      
+        size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'↑', 
+                upper: '↑', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'↑', 
+                upper: '↑', 
+            }  
+        ],  
+        code: '38',   
+    },
+    {
+        type: 'controls',   
         id: 'rightShift',      
-        size: 'large',
+        size: 'medium',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Shift', 
+                upper: 'Shift', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Shift', 
+                upper: 'Shift', 
+            }  
+        ],  
         code: '16',   
     },
     // Fifth row of keys
     {
         type: 'controls',   
-        id: 'LeftCtrl',      
+        id: 'ControlLeft',      
         size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low: 'Ctrl', 
+                upper:  'Ctrl', 
+            }, 
+            {
+                lang: 'RU', 
+                low: 'Ctrl', 
+                upper:  'Ctrl', 
+            }  
+        ],  
         code: '17',   
     },
     {
         type: 'controls',   
-        id: 'LeftAlt',      
-        size: 'small', 
+        id: 'Win',      
+        size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low: 'Win', 
+                upper:  'Win', 
+            }, 
+            {
+                lang: 'RU', 
+                low: 'Win', 
+                upper:  'Win', 
+            }  
+        ],  
+        code: '17',   
+    },
+    {
+        type: 'controls',   
+        id: 'MetaLeft',      
+        size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Alt', 
+                upper: 'Alt', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Alt', 
+                upper: 'Alt', 
+            }  
+        ],   
         code: '18',  
     },
     {
         type: 'controls',   
         id: 'Space',      
         size: 'extra-large', 
+        label: [
+            {
+                lang: 'EN', 
+                low:' ', 
+                upper: ' ', 
+            }, 
+            {
+                lang: 'RU', 
+                low:' ', 
+                upper: ' ', 
+            }  
+        ],  
         code: '32',  
     },
     {
         type: 'controls',   
-        id: 'RightAlt',      
+        id: 'AltRight',      
         size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Alt', 
+                upper: 'Alt', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Alt', 
+                upper: 'Alt', 
+            }  
+        ],  
         code: '18',   
     },
     {
         type: 'controls',   
-        id: 'RightCtrl',      
-        size: 'small', 
+        id: 'ControlRight',      
+        size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'Ctrl', 
+                upper: 'Ctrl', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'Ctrl', 
+                upper: 'Ctrl', 
+            }  
+        ],   
         code: '17',
     },
     {
         type: 'controls',   
-        id: 'Left',      
+        id: 'ArrowLeft',      
         size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'←', 
+                upper: '←', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'←', 
+                upper: '←', 
+            }  
+        ],  
         code: '37',   
     },
     {
         type: 'controls',   
-        id: 'Up',      
+        id: 'ArrowDown',      
         size: 'small',
-        code: '38',   
-    },
-    {
-        type: 'controls',   
-        id: 'Down',      
-        size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'↓', 
+                upper: '↓', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'↓', 
+                upper: '↓', 
+            }  
+        ],  
         code: '40',  
     },
     {
         type: 'controls',   
-        id: 'Right',      
+        id: 'ArrowRight',      
         size: 'small',
+        label: [
+            {
+                lang: 'EN', 
+                low:'→', 
+                upper: '→', 
+            }, 
+            {
+                lang: 'RU', 
+                low:'→', 
+                upper: '→', 
+            }  
+        ],  
         code: '39',   
     },
 ]
