@@ -85,13 +85,21 @@ keysWrapper.addEventListener('click', (e) => {
             text = `${text}    `;
         }
 
-        if (content === 'Caps' && caps === true){
+        if (content === 'Caps' && caps === true  && lang === 'EN'){
             keysWrapper.innerHTML = '';
             createButtons(false, 'EN');
             caps = false;
-        } else if (content === 'Caps' && caps === false) {
+        } else if (content === 'Caps' && caps === true && lang === "RU") {
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'RU');
+            caps = false;
+        } else if (content === 'Caps' && caps === false && lang === "EN") {
             keysWrapper.innerHTML = '';
             createButtons(true, 'EN');
+            caps = true;
+        } else if (content === 'Caps' && caps === false && lang === "RU") {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'RU');
             caps = true;
         }
 
@@ -159,13 +167,21 @@ document.addEventListener('keydown', (e) => {
         text = `${text}    `;
     }
 
-    if (e.code === 'CapsLock' && caps === true){
+    if (e.code === 'CapsLock' && caps === true && lang === 'EN'){
         keysWrapper.innerHTML = '';
         createButtons(false, 'EN');
         caps = false;
-    } else if (e.code === 'CapsLock' && caps === false) {
+    } else if (e.code === 'CapsLock' && caps === true && lang === 'RU'){
+        keysWrapper.innerHTML = '';
+        createButtons(false, 'RU');
+        caps = false;
+    } else if (e.code === 'CapsLock' && caps === false && lang == 'EN') {
         keysWrapper.innerHTML = '';
         createButtons(true, 'EN');
+        caps = true;
+    } else if (e.code === 'CapsLock' && caps === false && lang == 'RU') {
+        keysWrapper.innerHTML = '';
+        createButtons(true, 'RU');
         caps = true;
     }
 
