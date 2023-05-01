@@ -85,45 +85,68 @@ keysWrapper.addEventListener('click', (e) => {
             text = `${text}    `;
         }
 
-        if (content === 'Caps' && caps === true  && lang === 'EN'){
-            keysWrapper.innerHTML = '';
-            createButtons(false, 'EN');
-            caps = false;
-        } else if (content === 'Caps' && caps === true && lang === "RU") {
-            keysWrapper.innerHTML = '';
-            createButtons(false, 'RU');
-            caps = false;
-        } else if (content === 'Caps' && caps === false && lang === "EN") {
-            keysWrapper.innerHTML = '';
-            createButtons(true, 'EN');
-            caps = true;
-        } else if (content === 'Caps' && caps === false && lang === "RU") {
-            keysWrapper.innerHTML = '';
-            createButtons(true, 'RU');
-            caps = true;
+        if (content === 'Caps' 
+            && caps === true  
+            && lang === 'EN'){
+                keysWrapper.innerHTML = '';
+                createButtons(false, 'EN');
+                lang = 'EN';
+                caps = false;
+        } else if (content === 'Caps' 
+            && caps === true 
+            && lang === "RU") {
+                keysWrapper.innerHTML = '';
+                createButtons(false, 'RU');
+                lang = 'RU'
+                caps = false;
+        } else if (content === 'Caps' 
+            && caps === false 
+            && lang === "EN") {
+                keysWrapper.innerHTML = '';
+                createButtons(true, 'EN');
+                lang = 'EN';
+                caps = true;
+        } else if (content === 'Caps' 
+            && caps === false 
+            && lang === "RU") {
+                keysWrapper.innerHTML = '';
+                createButtons(true, 'RU');
+                lang = 'RU';
+                caps = true;
         }
 
         if(content === 'Shift') {
             shift = true;
         }
     
-        if(content === 'Alt' && shift === true && caps === false  && lang === 'EN') {     
-            keysWrapper.innerHTML = '';
-            createButtons(false, 'RU');
-            lang = 'RU';
-            console.log(shift);
-        } else if (content === 'Alt' && shift === true && caps === false && lang === 'RU') {
-            keysWrapper.innerHTML = '';
-            createButtons(false, 'EN');
-            lang = 'EN';
-        } else if (content === 'Alt' && shift === true && caps === true && lang === 'EN') {
-            keysWrapper.innerHTML = '';
-            createButtons(true, 'RU');
-            lang = 'RU';
-        } else if (content === 'Alt' && shift === true && caps === true && lang === 'RU') {
-            keysWrapper.innerHTML = '';
-            createButtons(true, 'EN');
-            lang = 'EN';
+        if(content === 'Alt' 
+            && shift === true 
+            && caps === false  
+            && lang === 'EN') {     
+                keysWrapper.innerHTML = '';
+                createButtons(false, 'RU');
+                lang = 'RU';
+        } else if (content === 'Alt' 
+            && shift === true 
+            && caps === false 
+            && lang === 'RU') {
+                keysWrapper.innerHTML = '';
+                createButtons(false, 'EN');
+                lang = 'EN';
+        } else if (content === 'Alt' 
+            && shift === true 
+            && caps === true 
+            && lang === 'EN') {
+                keysWrapper.innerHTML = '';
+                createButtons(true, 'RU');
+                lang = 'RU';
+        } else if (content === 'Alt' 
+            && shift === true 
+            && caps === true 
+            && lang === 'RU') {
+                keysWrapper.innerHTML = '';
+                createButtons(true, 'EN');
+                lang = 'EN';
         } 
 
         inputElement.textContent = text;
@@ -137,6 +160,10 @@ keysWrapper.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => { 
+
+    console.log('lang', lang);
+    console.log('caps', caps);
+
     if(e.code !== 'Enter'
         && e.code !== 'Tab'
         && e.code !== 'CapsLock'
@@ -167,22 +194,30 @@ document.addEventListener('keydown', (e) => {
         text = `${text}    `;
     }
 
-    if (e.code === 'CapsLock' && caps === true && lang === 'EN'){
-        keysWrapper.innerHTML = '';
-        createButtons(false, 'EN');
-        caps = false;
-    } else if (e.code === 'CapsLock' && caps === true && lang === 'RU'){
-        keysWrapper.innerHTML = '';
-        createButtons(false, 'RU');
-        caps = false;
-    } else if (e.code === 'CapsLock' && caps === false && lang == 'EN') {
-        keysWrapper.innerHTML = '';
-        createButtons(true, 'EN');
-        caps = true;
-    } else if (e.code === 'CapsLock' && caps === false && lang == 'RU') {
-        keysWrapper.innerHTML = '';
-        createButtons(true, 'RU');
-        caps = true;
+    if (e.code === 'CapsLock' 
+        && caps === true 
+        && lang === 'EN'){
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'EN');
+            caps = false;
+    } else if (e.code === 'CapsLock' 
+        && caps === true 
+        && lang === 'RU'){
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'RU');
+            caps = false;
+    } else if (e.code === 'CapsLock' 
+        && caps === false 
+        && lang == 'EN') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'EN');
+            caps = true;
+    } else if (e.code === 'CapsLock' 
+        && caps === false 
+        && lang == 'RU') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'RU');
+            caps = true;
     }
 
     if(e.code === 'Space') {
@@ -193,23 +228,35 @@ document.addEventListener('keydown', (e) => {
         shift = true;
     }
 
-    if(e.code === 'AltLeft' && shift === true && caps === false  && lang === 'EN') {     // если нажаты Shift + Alt
-        keysWrapper.innerHTML = '';
-        createButtons(false, 'RU');
-        lang = 'RU';
+    if(e.code === 'AltLeft' 
+        && shift === true 
+        && caps === false  
+        && lang === 'EN') {     // если нажаты Shift + Alt
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'RU');
+            lang = 'RU';
         console.log(shift);
-    } else if (e.code === 'AltLeft' && shift === true && caps === false && lang === 'RU') {
-        keysWrapper.innerHTML = '';
-        createButtons(false, 'EN');
-        lang = 'EN';
-    } else if (e.code === 'AltLeft' && shift === true && caps === true && lang === 'EN') {
-        keysWrapper.innerHTML = '';
-        createButtons(true, 'RU');
-        lang = 'RU';
-    } else if (e.code === 'AltLeft' && shift === true && caps === true && lang === 'RU') {
-        keysWrapper.innerHTML = '';
-        createButtons(true, 'EN');
-        lang = 'EN';
+    } else if (e.code === 'AltLeft' 
+        && shift === true 
+        && caps === false 
+        && lang === 'RU') {
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'EN');
+            lang = 'EN';
+    } else if (e.code === 'AltLeft' 
+        && shift === true 
+        && caps === true 
+        && lang === 'EN') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'RU');
+            lang = 'RU';
+    } else if (e.code === 'AltLeft' 
+        && shift === true 
+        && caps === true 
+        && lang === 'RU') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'EN');
+            lang = 'EN';
     } 
 
     inputElement.textContent = text;
