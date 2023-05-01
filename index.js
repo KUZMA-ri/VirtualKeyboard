@@ -14,6 +14,8 @@ const descriptionWrapper = createElement('div', 'keyboard__desc-wrapper');
 const description = createElement('p', 'keyboard__desc', 'For changing language you have to use Shift + Alt');
 let text = '';
 let caps = false;
+let shift = false;
+let lang = 'EN';
 
 body.prepend(container);
 container.append(title, keyboardWrapper, descriptionWrapper);
@@ -93,6 +95,29 @@ keysWrapper.addEventListener('click', (e) => {
             caps = true;
         }
 
+        if(content === 'Shift') {
+            shift = true;
+        }
+    
+        if(content === 'Alt' && shift === true && caps === false  && lang === 'EN') {     
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'RU');
+            lang = 'RU';
+            console.log(shift);
+        } else if (content === 'Alt' && shift === true && caps === false && lang === 'RU') {
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'EN');
+            lang = 'EN';
+        } else if (content === 'Alt' && shift === true && caps === true && lang === 'EN') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'RU');
+            lang = 'RU';
+        } else if (content === 'Alt' && shift === true && caps === true && lang === 'RU') {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'EN');
+            lang = 'EN';
+        } 
+
         inputElement.textContent = text;
     }
     
@@ -103,52 +128,80 @@ keysWrapper.addEventListener('click', (e) => {
     }
 });
 
-document.addEventListener('keydown', (e) => {  
-    if(e.key !== 'Enter'
-        && e.key !== 'Tab'
-        && e.key !== 'CapsLock'
-        && e.key !== 'Shift'
-        && e.key !== 'Alt'
-        && e.key !== 'Delete'
-        && e.key !== 'Enter'
-        && e.key !== 'Win'
-        && e.key !== 'Backspace'
-        && e.key !== 'Control'
+document.addEventListener('keydown', (e) => { 
+    if(e.code !== 'Enter'
+        && e.code !== 'Tab'
+        && e.code !== 'CapsLock'
+        && e.code !== 'ShiftLeft'
+        && e.code !== 'ShiftRight'
+        && e.code !== 'AltLeft'
+        && e.code !== 'AltRight'
+        && e.code !== 'Delete'
+        && e.code !== 'Enter'
+        && e.code !== 'Win'
+        && e.code !== 'Backspace'
+        && e.code !== 'ControlLeft'
+        && e.code !== 'ControlRight'
     ) {
         text += e.key;
     }
 
-    if (e.key === 'Backspace') {
+    if (e.code === 'Backspace') {
         text = text.slice(0, -1);
     }
 
-    if (e.key === 'Enter') {
+    if (e.code === 'Enter') {
         text = `${text}\n`;
     }
 
-    if(e.key === 'Tab') {
+    if(e.code === 'Tab') {
         e.preventDefault();
         text = `${text}    `;
     }
 
-    if (e.key === 'CapsLock' && caps === true){
+    if (e.code === 'CapsLock' && caps === true){
         keysWrapper.innerHTML = '';
         createButtons(false, 'EN');
         caps = false;
-    } else if (e.key === 'CapsLock' && caps === false) {
+    } else if (e.code === 'CapsLock' && caps === false) {
         keysWrapper.innerHTML = '';
         createButtons(true, 'EN');
         caps = true;
     }
 
+    if(e.code === 'Space') {
+        e.preventDefault();
+    }
+
+    if(e.code === 'ShiftLeft') {
+        shift = true;
+    }
+
+    if(e.code === 'AltLeft' && shift === true && caps === false  && lang === 'EN') {     // если нажаты Shift + Alt
+        keysWrapper.innerHTML = '';
+        createButtons(false, 'RU');
+        lang = 'RU';
+        console.log(shift);
+    } else if (e.code === 'AltLeft' && shift === true && caps === false && lang === 'RU') {
+        keysWrapper.innerHTML = '';
+        createButtons(false, 'EN');
+        lang = 'EN';
+    } else if (e.code === 'AltLeft' && shift === true && caps === true && lang === 'EN') {
+        keysWrapper.innerHTML = '';
+        createButtons(true, 'RU');
+        lang = 'RU';
+    } else if (e.code === 'AltLeft' && shift === true && caps === true && lang === 'RU') {
+        keysWrapper.innerHTML = '';
+        createButtons(true, 'EN');
+        lang = 'EN';
+    } 
+
     inputElement.textContent = text;
 
-    console.log(e);
-
-    let buttons = document.querySelectorAll('button');
-    for (let i = 0; i < buttons.length; i++) {
-        // console.log(buttons[i]);        
-    }
+    // let buttons = document.querySelectorAll('button');       // TO DO    подсветка при нажатии клавиш клавиатуры 
+    // for (let i = 0; i < buttons.length; i++) {
+    //     // console.log(buttons[i]);        
+    // }
 });
 
 
