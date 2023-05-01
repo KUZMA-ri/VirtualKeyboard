@@ -93,7 +93,6 @@ keysWrapper.addEventListener('click', (e) => {
             caps = true;
         }
 
-
         inputElement.textContent = text;
     }
     
@@ -132,13 +131,23 @@ document.addEventListener('keydown', (e) => {
         text = `${text}    `;
     }
 
+    if (e.key === 'CapsLock' && caps === true){
+        keysWrapper.innerHTML = '';
+        createButtons(false, 'EN');
+        caps = false;
+    } else if (e.key === 'CapsLock' && caps === false) {
+        keysWrapper.innerHTML = '';
+        createButtons(true, 'EN');
+        caps = true;
+    }
+
     inputElement.textContent = text;
 
     console.log(e);
 
     let buttons = document.querySelectorAll('button');
     for (let i = 0; i < buttons.length; i++) {
-        console.log(buttons[i]);        
+        // console.log(buttons[i]);        
     }
 });
 
