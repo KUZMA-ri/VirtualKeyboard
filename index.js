@@ -13,7 +13,7 @@ const keysWrapper = createElement('div', 'keyboard__keys-wrapper');
 const descriptionWrapper = createElement('div', 'keyboard__desc-wrapper');
 const description = createElement('p', 'keyboard__desc', 'For changing language you have to use Shift + Alt');
 
-const caps = false;
+let caps = false;
 let text = '';
 let lang = 'EN'; 
 
@@ -22,7 +22,7 @@ container.append(title, keyboardWrapper, descriptionWrapper);
 keyboardWrapper.append(inputElement, keysWrapper);
 descriptionWrapper.append(description);
 
-const createButtons = () => {                           // в зависимости от регистра создаем кнопки с соответствующим содержимым
+const createButtons = () => {                        // в зависимости от регистра создаем кнопки с соответствующим содержимым
     if(!caps && lang === 'EN') {
         for (let i = 0; i < keyList.length; i++) {
             let key = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].low}`);
@@ -48,12 +48,18 @@ const createButtons = () => {                           // в зависимос
 
 createButtons();
 
+inputElement.addEventListener('input', (e) => {
+    text = e.target.value;
+    console.log(text);
+});
+
 keysWrapper.addEventListener('click', (e) => {
     if(!e.target.classList.contains('keyboard__keys-wrapper')) {
         e.target.classList.add('active'); 
 
         let content = e.target.textContent;
-        if(content !== 'Enter'              // bad solution
+
+        if(content !== 'Enter'             
                 && content !== 'Tab'
                 && content !== 'Caps'
                 && content !== 'Shift'
@@ -64,8 +70,15 @@ keysWrapper.addEventListener('click', (e) => {
                 && content !== 'Backspace'
                 && content !== 'Ctrl'
             ) {
-                inputElement.textContent += e.target.textContent;
+                text += e.target.textContent;
+                inputElement.textContent = text;
+                console.log(text);
             }
+
+        if (content === 'Backspace') {
+            text = text.slice(0, -1);
+            inputElement.textContent = text;
+        }
         }
     
     if(e.target.classList.contains('active')) {
@@ -73,18 +86,22 @@ keysWrapper.addEventListener('click', (e) => {
             e.target.classList.remove('active')
         }, 500)
     }
-})
+});
 
 // document.addEventListener('keydown', (e) => {             
 //     for (let i = 0; i < keyList.length; i++) {
-//         if(e.code.toLowerCase() === keyList[i].id.toLowerCase()) {
-
+//         // console.log(e.keyCode);
+//         // console.log(keyList[i].code);
+//         if(e.keyCode == keyList[i].code) {
+//             let buttons = document.querySelectorAll('button');
+//             buttons.forEach((btn) => {
+//                 console.log(btn);
+//                 console.log(btn.textContent === e.code);
+//             })
 //         }           
 //     }
 // });
 
-inputElement.addEventListener('keydown', (e) => {
-    text = e.target.value;
-});
+
 
 
