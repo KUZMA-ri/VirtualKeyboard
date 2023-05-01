@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: fff;
-}
-
 button { 
     background: rgba(255, 255, 255, .05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
@@ -15,13 +11,6 @@ button {
     color: #fff;
     transition: all 0.2s;
 }
-
-/* button:hover {
-    box-shadow: -2px 1px 20px 0px rgba(255, 255, 255, 0.75);
-    background-color: #c6e1e5;
-    border: none;
-    color: black;
-} */
 
 .container {
     max-width: 1200px;
@@ -40,10 +29,15 @@ button {
     background-color: #1d3538;
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .title {
     margin-bottom: 50px;
+}
+
+.keyboard__desc {
+    text-align: center;
 }
 
 .keyboard__text {

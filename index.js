@@ -2,8 +2,6 @@
 import { keyList } from "./scripts/keyList.js";
 import { createElement } from "./scripts/createElement.js";
 
-console.log(keyList);
-
 const body = document.querySelector('body');
 const container = createElement('div', 'container');
 const title  = createElement('h1','title','Virtual Keyboard');
@@ -11,7 +9,9 @@ const keyboardWrapper = createElement('div', 'keyboard__wrapper');
 const inputElement = createElement('textarea', 'keyboard__text');
 const keysWrapper = createElement('div', 'keyboard__keys-wrapper');
 const descriptionWrapper = createElement('div', 'keyboard__desc-wrapper');
-const description = createElement('p', 'keyboard__desc', 'For changing language you have to use Shift + Alt');
+const description = createElement('p', 'keyboard__desc', 
+    `Virtual Keyboard was create in Windows.
+    For changing language you can use Left Shift + Left Alt`);
 let text = '';
 let caps = false;
 let shift = false;
@@ -55,11 +55,11 @@ inputElement.addEventListener('input', (e) => {
 });
 
 keysWrapper.addEventListener('click', (e) => {
-    if(!e.target.classList.contains('keyboard__keys-wrapper')) {
+    if (!e.target.classList.contains('keyboard__keys-wrapper')) {
         e.target.classList.add('active'); 
 
         let content = e.target.textContent;
-        if(content !== 'Enter'             
+        if (content !== 'Enter'             
                 && content !== 'Tab'
                 && content !== 'Caps'
                 && content !== 'Shift'
@@ -81,7 +81,7 @@ keysWrapper.addEventListener('click', (e) => {
             text = `${text}\n`;
         }
 
-        if(content === 'Tab') {
+        if (content === 'Tab') {
             text = `${text}    `;
         }
 
@@ -115,17 +115,18 @@ keysWrapper.addEventListener('click', (e) => {
                 caps = true;
         }
 
-        if(content === 'Shift') {
+        if (content === 'Shift') {
             shift = true;
         }
     
-        if(content === 'Alt' 
+        if (content === 'Alt' 
             && shift === true 
             && caps === false  
             && lang === 'EN') {     
                 keysWrapper.innerHTML = '';
                 createButtons(false, 'RU');
                 lang = 'RU';
+                caps = false;
         } else if (content === 'Alt' 
             && shift === true 
             && caps === false 
@@ -133,6 +134,7 @@ keysWrapper.addEventListener('click', (e) => {
                 keysWrapper.innerHTML = '';
                 createButtons(false, 'EN');
                 lang = 'EN';
+                caps = false;
         } else if (content === 'Alt' 
             && shift === true 
             && caps === true 
@@ -140,6 +142,7 @@ keysWrapper.addEventListener('click', (e) => {
                 keysWrapper.innerHTML = '';
                 createButtons(true, 'RU');
                 lang = 'RU';
+                caps = true;
         } else if (content === 'Alt' 
             && shift === true 
             && caps === true 
@@ -147,6 +150,7 @@ keysWrapper.addEventListener('click', (e) => {
                 keysWrapper.innerHTML = '';
                 createButtons(true, 'EN');
                 lang = 'EN';
+                caps = true;
         } 
 
         inputElement.textContent = text;
@@ -160,10 +164,6 @@ keysWrapper.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => { 
-
-    console.log('lang', lang);
-    console.log('caps', caps);
-
     if(e.code !== 'Enter'
         && e.code !== 'Tab'
         && e.code !== 'CapsLock'
@@ -200,42 +200,45 @@ document.addEventListener('keydown', (e) => {
             keysWrapper.innerHTML = '';
             createButtons(false, 'EN');
             caps = false;
+            lang = 'EN';
     } else if (e.code === 'CapsLock' 
         && caps === true 
         && lang === 'RU'){
             keysWrapper.innerHTML = '';
             createButtons(false, 'RU');
             caps = false;
+            lang = 'RU';
     } else if (e.code === 'CapsLock' 
         && caps === false 
         && lang == 'EN') {
             keysWrapper.innerHTML = '';
             createButtons(true, 'EN');
             caps = true;
+            lang = 'EN';
     } else if (e.code === 'CapsLock' 
         && caps === false 
         && lang == 'RU') {
             keysWrapper.innerHTML = '';
             createButtons(true, 'RU');
             caps = true;
+            lang = 'RU';
     }
 
-    if(e.code === 'Space') {
+    if (e.code === 'Space') {
         e.preventDefault();
     }
 
-    if(e.code === 'ShiftLeft') {
+    if (e.code === 'ShiftLeft') {
         shift = true;
     }
 
-    if(e.code === 'AltLeft' 
+    if (e.code === 'AltLeft' 
         && shift === true 
         && caps === false  
-        && lang === 'EN') {     // если нажаты Shift + Alt
+        && lang === 'EN') {     
             keysWrapper.innerHTML = '';
             createButtons(false, 'RU');
             lang = 'RU';
-        console.log(shift);
     } else if (e.code === 'AltLeft' 
         && shift === true 
         && caps === false 
@@ -260,11 +263,6 @@ document.addEventListener('keydown', (e) => {
     } 
 
     inputElement.textContent = text;
-
-    // let buttons = document.querySelectorAll('button');       // TO DO    подсветка при нажатии клавиш клавиатуры 
-    // for (let i = 0; i < buttons.length; i++) {
-    //     // console.log(buttons[i]);        
-    // }
 });
 
 
