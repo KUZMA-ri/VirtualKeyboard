@@ -58,7 +58,6 @@ keysWrapper.addEventListener('click', (e) => {
         e.target.classList.add('active'); 
 
         let content = e.target.textContent;
-
         if(content !== 'Enter'             
                 && content !== 'Tab'
                 && content !== 'Caps'
@@ -69,28 +68,25 @@ keysWrapper.addEventListener('click', (e) => {
                 && content !== 'Win'
                 && content !== 'Backspace'
                 && content !== 'Ctrl'
-            ) {
-                text += e.target.textContent;
-                inputElement.textContent = text;
-                console.log(text);
-            }
+        ) {
+            text += e.target.textContent;
+            console.log(text);
+        }
 
         if (content === 'Backspace') {
             text = text.slice(0, -1);
-            inputElement.textContent = text;
         }
 
         if (content === 'Enter') {
             text = `${text}\n`;
-            inputElement.textContent = text;
         }
 
         if(content === 'Tab') {
             text = `${text}    `;
-            inputElement.textContent = text;
         }
 
-        }
+        inputElement.textContent = text;
+    }
     
     if(e.target.classList.contains('active')) {
         setTimeout(() => {
@@ -99,19 +95,36 @@ keysWrapper.addEventListener('click', (e) => {
     }
 });
 
-// document.addEventListener('keydown', (e) => {             
-//     for (let i = 0; i < keyList.length; i++) {
-//         // console.log(e.keyCode);
-//         // console.log(keyList[i].code);
-//         if(e.keyCode == keyList[i].code) {
-//             let buttons = document.querySelectorAll('button');
-//             buttons.forEach((btn) => {
-//                 console.log(btn);
-//                 console.log(btn.textContent === e.code);
-//             })
-//         }           
-//     }
-// });
+document.addEventListener('keydown', (e) => {  
+    if(e.key !== 'Enter'
+        && e.key !== 'Tab'
+        && e.key !== 'CapsLock'
+        && e.key !== 'Shift'
+        && e.key !== 'Alt'
+        && e.key !== 'Delete'
+        && e.key !== 'Enter'
+        && e.key !== 'Win'
+        && e.key !== 'Backspace'
+        && e.key !== 'Control'
+    ) {
+        text += e.key;
+    }
+
+    if (e.key === 'Backspace') {
+        text = text.slice(0, -1);
+    }
+
+    if (e.key === 'Enter') {
+        text = `${text}\n`;
+    }
+
+    if(e.key === 'Tab') {
+        e.preventDefault();
+        text = `${text}    `;
+    }
+
+    inputElement.textContent = text;
+});
 
 
 
