@@ -12,45 +12,44 @@ const inputElement = createElement('textarea', 'keyboard__text');
 const keysWrapper = createElement('div', 'keyboard__keys-wrapper');
 const descriptionWrapper = createElement('div', 'keyboard__desc-wrapper');
 const description = createElement('p', 'keyboard__desc', 'For changing language you have to use Shift + Alt');
-
-let caps = false;
 let text = '';
-let lang = 'EN'; 
+let caps = false;
 
 body.prepend(container);
 container.append(title, keyboardWrapper, descriptionWrapper);
 keyboardWrapper.append(inputElement, keysWrapper);
 descriptionWrapper.append(description);
 
-const createButtons = () => {                        // в зависимости от регистра создаем кнопки с соответствующим содержимым
+const createButtons = (caps, lang) => {                        // в зависимости от регистра создаем кнопки с соответствующим содержимым
     if(!caps && lang === 'EN') {
         for (let i = 0; i < keyList.length; i++) {
-            let key = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].low}`);
-            keysWrapper.append(key);
+            let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].low}`);
+            keysWrapper.append(btn);
         }
     } else if (caps && lang === 'EN') {
         for (let i = 0; i < keyList.length; i++) {
-            let key = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].upper}`);
-            keysWrapper.append(key);
+            let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].upper}`);
+            keysWrapper.append(btn);
         }
     } else if (!caps && lang === 'RU') {
         for (let i = 0; i < keyList.length; i++) {
-            let key = createElement('button', `${keyList[i].size}`, `${keyList[i].label[1].low}`);
-            keysWrapper.append(key);
+            let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[1].low}`);
+            keysWrapper.append(btn);
         }
     } else if (caps && lang === 'RU') {
         for (let i = 0; i < keyList.length; i++) {
-            let key = createElement('button', `${keyList[i].size}`, `${keyList[i].label[1].upper}`);
-            keysWrapper.append(key);
+            let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[1].upper}`);
+            keysWrapper.append(btn);
         }
     }
-}
+};
 
-createButtons();
+window.addEventListener('DOMContentLoaded', () => {
+    createButtons(false, 'EN');
+})
 
 inputElement.addEventListener('input', (e) => {
     text = e.target.value;
-    console.log(text);
 });
 
 keysWrapper.addEventListener('click', (e) => {
@@ -70,7 +69,6 @@ keysWrapper.addEventListener('click', (e) => {
                 && content !== 'Ctrl'
         ) {
             text += e.target.textContent;
-            console.log(text);
         }
 
         if (content === 'Backspace') {
@@ -84,6 +82,17 @@ keysWrapper.addEventListener('click', (e) => {
         if(content === 'Tab') {
             text = `${text}    `;
         }
+
+        if (content === 'Caps' && caps === true){
+            keysWrapper.innerHTML = '';
+            createButtons(false, 'EN');
+            caps = false;
+        } else if (content === 'Caps' && caps === false) {
+            keysWrapper.innerHTML = '';
+            createButtons(true, 'EN');
+            caps = true;
+        }
+
 
         inputElement.textContent = text;
     }
@@ -124,6 +133,13 @@ document.addEventListener('keydown', (e) => {
     }
 
     inputElement.textContent = text;
+
+    console.log(e);
+
+    let buttons = document.querySelectorAll('button');
+    for (let i = 0; i < buttons.length; i++) {
+        console.log(buttons[i]);        
+    }
 });
 
 
