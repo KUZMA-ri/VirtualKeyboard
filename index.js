@@ -79,6 +79,17 @@ keysWrapper.addEventListener('click', (e) => {
             text = text.slice(0, -1);
             inputElement.textContent = text;
         }
+
+        if (content === 'Enter') {
+            text = `${text}\n`;
+            inputElement.textContent = text;
+        }
+
+        if(content === 'Tab') {
+            text = `${text}    `;
+            inputElement.textContent = text;
+        }
+
         }
     
     if(e.target.classList.contains('active')) {
