@@ -22,7 +22,7 @@ container.append(title, keyboardWrapper, descriptionWrapper);
 keyboardWrapper.append(inputElement, keysWrapper);
 descriptionWrapper.append(description);
 
-const createButtons = (caps, lang) => {                        // в зависимости от регистра создаем кнопки с соответствующим содержимым
+const createButtons = (caps, lang) => {                       
     if(!caps && lang === 'EN') {
         for (let i = 0; i < keyList.length; i++) {
             let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].low}`);
@@ -163,7 +163,7 @@ keysWrapper.addEventListener('click', (e) => {
     }
 });
 
-document.addEventListener('keydown', (e) => { 
+document.addEventListener('keydown', (e) => {
     if(e.code !== 'Enter'
         && e.code !== 'Tab'
         && e.code !== 'CapsLock'
@@ -177,6 +177,10 @@ document.addEventListener('keydown', (e) => {
         && e.code !== 'Backspace'
         && e.code !== 'ControlLeft'
         && e.code !== 'ControlRight'
+        && e.code !== 'ArrowUp'
+        && e.code !== 'ArrowDown'
+        && e.code !== 'ArrowLeft'
+        && e.code !== 'ArrowRight'
     ) {
         text += e.key;
     }
@@ -261,6 +265,17 @@ document.addEventListener('keydown', (e) => {
             createButtons(true, 'EN');
             lang = 'EN';
     } 
+
+    if(e.key === 'ArrowUp') {
+        text += '↑'
+    } else if (e.key === 'ArrowDown') {
+        text += '↓'
+    } else if(e.key === 'ArrowLeft') {
+        text += '←'
+    } else if (e.key === 'ArrowRight') {
+        text += '→'
+    }
+
 
     inputElement.textContent = text;
 });
