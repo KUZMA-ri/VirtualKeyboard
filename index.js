@@ -22,7 +22,7 @@ container.append(title, keyboardWrapper, descriptionWrapper);
 keyboardWrapper.append(inputElement, keysWrapper);
 descriptionWrapper.append(description);
 
-const createButtons = (caps, lang) => {                        // в зависимости от регистра создаем кнопки с соответствующим содержимым
+const createButtons = (caps, lang) => {                       
     if(!caps && lang === 'EN') {
         for (let i = 0; i < keyList.length; i++) {
             let btn = createElement('button', `${keyList[i].size}`, `${keyList[i].label[0].low}`);
@@ -164,7 +164,6 @@ keysWrapper.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-    console.log(e.key); 
     if(e.code !== 'Enter'
         && e.code !== 'Tab'
         && e.code !== 'CapsLock'
